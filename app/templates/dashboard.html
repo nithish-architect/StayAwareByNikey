@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="dashboard">
+    <h2>What do you want to learn today?</h2>
+    <p>Choose a category to explore evidence-based truths about human essentials.</p>
+
+    <div class="categories-grid">
+        {% for cat in categories %}
+        <a href="{{ url_for('main.category', category_id=cat.id) }}" class="category-card">
+            <div class="category-icon">{{ cat.icon }}</div>
+            <h3>{{ cat.name }}</h3>
+            <p>{{ cat.description }}</p>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+

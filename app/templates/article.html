@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="article-page">
+    <h1>{{ article.title }}</h1>
+
+    <div class="myth-truth">
+        <div class="myth-box">
+            <h3>❌ The Myth</h3>
+            <p>{{ article.myth }}</p>
+        </div>
+        <div class="truth-box">
+            <h3>✅ The Truth</h3>
+            <p>{{ article.truth }}</p>
+        </div>
+    </div>
+
+    <div class="article-content">
+        {{ article.content }}
+    </div>
+
+    {% if article.sources %}
+    <div class="sources">
+        <h4>Sources</h4>
+        <p>{{ article.sources }}</p>
+    </div>
+    {% endif %}
+
+    <a href="{{ url_for('main.category', category_id=article.category_id) }}"
+       class="btn btn-secondary">← Back to {{ article.category.name }}</a>
+</div>
+
+{% endblock %}
